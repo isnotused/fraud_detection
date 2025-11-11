@@ -1,5 +1,10 @@
-# 业务应用
+# 用户数据页面
 import streamlit as st
+import numpy as np
+import pandas as pd
+from datetime import datetime, timedelta
+import random
+from progress_bar import update_progress
 
 data_title = [
     '金融消费交易数据', '多维用户行为数据', '更多服务>>>'
@@ -16,7 +21,7 @@ def users_data_app():
         st.session_state.index = 0
         st.session_state.info = data_title[0]
     tp = lambda x: 'primary' if st.session_state.index == x else 'secondary'
-    col01, col02 = st.columns([1, 9])
+    col01, col02 = st.columns([1, 9])   # 左侧按钮列，右侧内容列
     with col01:
         with st.container(height=660, border=False):
             for ind, tit in enumerate(data_title):

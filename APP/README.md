@@ -102,3 +102,6 @@ showSidebarNavigation = false
 ---
 
 **© 2025 金融欺诈检测系统 | 智能风控，守护安全**
+
+# 表情符号已移除
+👥 

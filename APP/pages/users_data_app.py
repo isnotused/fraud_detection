@@ -9,7 +9,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 import networkx as nx
 
-data_title = ['金融消费交易数据', '多维用户行为数据', '用户行为交互网络', '行为一致性分析']
+data_title = ['金融消费交易记录', '用户行为', '用户行为交互网络', '行为一致性分析']
 
 def tit_button(index):
     """按钮点击回调函数"""
@@ -17,7 +17,7 @@ def tit_button(index):
     st.session_state.info = data_title[index]
 
 def users_data_app():
-    st.title("📊 用户数据采集与分析")
+    st.title("用户数据采集与分析")
     
     # 初始化session state
     if 'user_data_generated' not in st.session_state:
@@ -63,7 +63,7 @@ def users_data_app():
     if st.session_state.last_update_time:
         time_since_update = (current_time - st.session_state.last_update_time).total_seconds()
         next_update_in = max(0, 60 - time_since_update)
-        st.info(f"📡 数据自动更新 | 最后更新: {st.session_state.last_update_time.strftime('%H:%M:%S')} | 下次更新: {int(next_update_in)}秒后")
+        st.info(f"数据自动更新 | 最后更新: {st.session_state.last_update_time.strftime('%H:%M:%S')} | 下次更新: {int(next_update_in)}秒后")
         
         # 自动刷新
         if next_update_in <= 0:
@@ -121,7 +121,7 @@ def show_transaction_data():
 
 def show_user_behavior_data():
     """显示多维用户行为数据"""
-    st.markdown("### 👥 多维用户行为数据")
+    st.markdown("### 多维用户行为数据")
     
     user_behavior_data = st.session_state.user_behavior_data
     

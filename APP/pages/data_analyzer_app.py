@@ -311,7 +311,7 @@ def tit_button(index):
     st.session_state.analyzer_info = data_title[index]
 
 def data_analyzer_app():
-    st.title("🔍 风险分析评估")
+    st.title("风险分析评估")
     
     # 检查是否有数据可用
     if 'user_data_generated' not in st.session_state or not st.session_state.user_data_generated:
@@ -334,7 +334,7 @@ def data_analyzer_app():
     col01, col02 = st.columns([1, 5])
     
     with col01:
-        st.markdown("### 📋 分析视图")
+        # st.markdown("### 分析视图")
         with st.container(height=600, border=True):
             for ind, tit in enumerate(data_title):
                 if st.button(label=tit, key=f'analyzer_tit_{ind}', use_container_width=True, 
@@ -485,7 +485,7 @@ def generate_fraud_labels(dynamic_risk_values, transaction_features, segmented_d
 
 def show_fraud_detection_results():
     """显示欺诈检测结果"""
-    st.markdown("### 🎯 欺诈检测结果")
+    st.markdown("### 欺诈检测结果")
     
     fraud_labels = st.session_state.fraud_labels
     
@@ -515,7 +515,7 @@ def show_fraud_detection_results():
 
 def show_anomaly_distribution():
     """显示异常特征分布"""
-    st.markdown("### 📊 各时间窗口异常特征分布")
+    st.markdown("### 各时间窗口异常特征分布")
     
     anomaly_features = st.session_state.anomaly_features
     
@@ -561,7 +561,7 @@ def create_anomaly_heatmap(anomaly_features):
 
 def show_risk_trend():
     """显示风险值趋势"""
-    st.markdown("### 📈 时间窗口动态欺诈风险值趋势")
+    st.markdown("### 时间窗口动态欺诈风险值趋势")
     
     dynamic_risk_values = st.session_state.dynamic_risk_values
     
@@ -608,7 +608,7 @@ def create_risk_trend_chart(risk_values):
 
 def show_transaction_analysis():
     """显示交易类型分析"""
-    st.markdown("### 💰 交易类型分布与欺诈关联图")
+    st.markdown("### 交易类型分布与欺诈关联")
     
     transaction_data = st.session_state.transaction_data
     

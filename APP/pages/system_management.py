@@ -8,7 +8,7 @@ def system_management():
     st.title("⚙️ 系统管理")
     
     # 创建标签页
-    tab1, tab2, tab3, tab4 = st.tabs(["📊 数据管理", "🔧 模型配置", "📈 系统监控", "📝 日志管理"])
+    tab1, tab2, tab3, tab4 = st.tabs(["数据管理", "模型配置", "系统监控", "日志管理"])
     
     with tab1:
         show_data_management()
@@ -24,7 +24,7 @@ def system_management():
 
 def show_data_management():
     """数据管理"""
-    st.markdown("### 📊 数据管理")
+    st.markdown("### 数据管理")
     
     col1, col2, col3, col4 = st.columns(4)
     
@@ -96,7 +96,7 @@ def show_data_management():
             st.rerun()
     
     with col2:
-        if st.button("📥 导出数据", use_container_width=True):
+        if st.button("导出数据", use_container_width=True):
             st.info("数据导出功能开发中...")
     
     with col3:
@@ -109,7 +109,7 @@ def show_data_management():
 
 def show_model_configuration():
     """模型配置"""
-    st.markdown("### 🔧 模型配置")
+    st.markdown("### 模型配置")
     
     # 当前模型参数
     st.markdown("#### 当前模型参数")
@@ -146,7 +146,7 @@ def show_model_configuration():
             min_samples_split = st.slider("最小分裂样本", 2, 20, 2, 1)
             min_samples_leaf = st.slider("最小叶子样本", 1, 20, 1, 1)
         
-        submitted = st.form_submit_button("💾 应用配置", use_container_width=True, type="primary")
+        submitted = st.form_submit_button("应用配置", use_container_width=True, type="primary")
         
         if submitted:
             if 'fraud_model' in st.session_state:
@@ -168,7 +168,7 @@ def show_model_configuration():
 
 def show_system_monitoring():
     """系统监控"""
-    st.markdown("### 📈 系统监控")
+    st.markdown("### 系统监控")
     
     # 系统状态
     col1, col2, col3, col4 = st.columns(4)
@@ -251,7 +251,7 @@ def create_performance_trend(history):
 
 def show_log_management():
     """日志管理"""
-    st.markdown("### 📝 日志管理")
+    st.markdown("### 日志管理")
     
     # 操作日志
     st.markdown("#### 系统操作日志")
@@ -300,7 +300,7 @@ def show_log_management():
             st.rerun()
     
     with col2:
-        if st.button("📥 导出日志", use_container_width=True):
+        if st.button("导出日志", use_container_width=True):
             st.info("日志导出功能开发中...")
     
     with col3:

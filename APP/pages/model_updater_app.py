@@ -7,7 +7,7 @@ import time
 from datetime import datetime
 
 def model_updater_app():
-    st.title("🤖 模型更新与优化")
+    st.title("模型更新与优化")
     
     # 检查是否有数据可用
     if 'user_data_generated' not in st.session_state or not st.session_state.user_data_generated:
@@ -23,12 +23,12 @@ def model_updater_app():
         st.session_state.model_history = []
     
     # 模型训练部分
-    st.markdown("### 📊 模型训练与性能监控")
+    st.markdown("### 模型训练与性能监控")
     
     col1, col2, col3 = st.columns(3)
     
     with col1:
-        if st.button("🚀 训练/更新模型", type="primary", use_container_width=True):
+        if st.button("训练/更新模型", type="primary", use_container_width=True):
             with st.spinner("正在训练模型..."):
                 accuracy = train_model()
                 if accuracy is not None:
@@ -46,16 +46,16 @@ def model_updater_app():
     
     # 显示模型性能变化图表
     if st.session_state.model_history:
-        st.markdown("### 📈 模型检测准确率变化")
+        st.markdown("### 模型检测准确率变化")
         fig = create_model_performance_chart(st.session_state.model_history)
         st.plotly_chart(fig, use_container_width=True)
         
         # 显示训练历史记录
-        st.markdown("### 📋 训练历史记录")
+        st.markdown("### 训练历史记录")
         history_df = pd.DataFrame(st.session_state.model_history)
         st.dataframe(history_df, use_container_width=True, height=300)
     else:
-        st.info("📌 暂无模型训练记录，请点击上方按钮开始训练")
+        st.info("暂无模型训练记录，请点击上方按钮开始训练")
 
 def train_model():
     """训练欺诈检测模型"""

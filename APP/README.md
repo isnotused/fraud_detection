@@ -103,3 +103,5 @@ showSidebarNavigation = false
 
 **© 2025 金融欺诈检测系统 | 智能风控，守护安全**
 
+# 废弃表情符号
+👥 

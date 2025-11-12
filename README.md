@@ -1,3 +1,9 @@
+
+# 打包前需在运行环境中安装必要依赖
+pip install -r requirements.txt
+# 或 uv:
+uv pip install
+
 # 打包
 在项目环境中使用 PyInstaller 打包 Streamlit 应用。确保你已经安装了 PyInstaller：
 ```BASH
@@ -18,14 +24,10 @@ pyinstaller launcher.py ^
     --collect-all "streamlit" ^                     # 确保收集所有 Streamlit 相关的隐藏导入
     --clean                                         # 清理临时文件
 
-注意：
+**注意：**
 ^ 是 Windows CMD 的续行符，但在 PowerShell 里应该用反引号 ` 或直接写成一行
-```PowerShell
-# 安装依赖（任选其一）
-pip install -r requirements.txt
-# 或 uv:
-uv pip install
 
+```PowerShell
 # 分行写法（PowerShell 用反引号`）
 pyinstaller launcher.py `
     --name "App" `
@@ -53,7 +55,6 @@ pyinstaller launcher.py \
     --hidden-import scipy \
     --clean
 ```
-
 
 # 解决 streamlit_option_menu 资源文件缺失问题
 在APP.spec文件中，添加datas参数，和 hiddenimports 指定streamlit_option_menu的资源文件路径：
@@ -88,8 +89,12 @@ hiddenimports = [
     'sklearn.metrics',
     ]
 
-
-
-
-# 表情符号
-👥 
+# exe 图标可以自定义。
+方法如下：
+1. 准备一个 .ico 格式的图标文件（如 app.ico）。
+2. 打包时加参数：
+pyinstaller launcher.py --name "App" --onefile --windowed --icon=app.ico ...
+3. 图标会显示在生成的 exe 文件上。
+注意：
+图标必须是标准的 .ico 文件，建议 256x256 或 128x128 像素。
+只需在打包命令加 --icon=你的图标文件.ico 即可。
